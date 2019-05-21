@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Icon from './icon'
+import Icon from './icon/icon'
 
 const fn: React.MouseEventHandler = (e) => {
   console.log(e.target);
@@ -8,5 +8,9 @@ const fn: React.MouseEventHandler = (e) => {
 
 
 ReactDOM.render(<div>
-  <Icon name='wechat' onClick={fn}/>
+  <Icon name='wechat' 
+    onClick={fn}
+    onMouseEnter = { () => console.log('enter')}
+    onMouseLeave = { () => console.log('leave')}
+  />
 </div>, document.getElementById('root'))
