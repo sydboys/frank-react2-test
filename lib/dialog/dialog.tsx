@@ -24,7 +24,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       props.onClose(e)
     }
   }
-  const x = props.visible ? 
+  const result = props.visible ? 
   <Fragment>
       <div className={sc('mask')} onClick={onClickMask}>
       </div>
@@ -52,7 +52,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   : 
   null
   return (
-    ReactDOM.createPortal(x, document.body)
+    ReactDOM.createPortal(result, document.body)
   )
 }
 
