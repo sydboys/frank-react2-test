@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
-import Dialog from './dialog'
+import Dialog, {alert, confirm, modal} from './dialog'
 export default function () {
   const [x, setX] = useState(false)
+
+  const openModal = () => {
+    const close = modal(<h1>你好
+      <button onClick={() => close()}>close</button>
+    </h1>)
+  }
+
   return (
     <div>
-      <div style={{position:'relative', zIndex: 10, background:'#fff'}}>666</div>
       <button onClick={() => {setX(!x)}}>点击</button>
-
       <div style={{position:'relative', zIndex: 9, background:'#fff'}}>
         <Dialog visible={x} buttons = {
           [
@@ -17,6 +22,16 @@ export default function () {
           <div>hi</div>
         </Dialog>
       </div>
+
+      <h1>example 3</h1>
+      <button onClick={() => alert('1')}>alert</button>
+      <button onClick={() => confirm('2', ()=>{
+        console.log('你点击了 yes')
+      }, ()=> {
+        console.log('你点击了 no')
+      })}>confirm</button>
+
+      <button onClick={openModal}>modal</button>
 
     </div>
   )
